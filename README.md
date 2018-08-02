@@ -17,7 +17,7 @@ npm i -D replace-css-url-loader
 
 ## Usage
 
-### When you want to trasform `url(/assets/...)` to `url(https://domain/assets/...)`, the `webpack.config.js` is below
+When you want to trasform `url(/assets/...)` to `url(https://domain/assets/...)`, the `webpack.config.js` is below
 
 ```javascript
 module.exports = {
