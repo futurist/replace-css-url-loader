@@ -17,7 +17,7 @@ npm i -D replace-css-url-loader
 
 ## Usage
 
-When you want to trasform `url(/assets/...)` to `url(https://domain/assets/...)`, the `webpack.config.js` is below
+When you want to trasform `url(https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff)` to `url(./static/font.woff)`, the `webpack.config.js` is below
 
 ```javascript
 module.exports = {
@@ -31,7 +31,10 @@ module.exports = {
             {
                 loader: 'replace-css-url-loader',
                 query: {
-                    replace: url => url.replace(/^\/assets\//, 'https://domain/assets/')
+                    replace: url => {
+                      var match = /(?:https?:)\/\/at.alicdn.com\/t\/\w+.([^.]+)/.exec(url)
+                      return match ? './static/font.' + match[1] : url
+                    }
                 }
             }
         ],
