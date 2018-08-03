@@ -1,6 +1,6 @@
 {
   "name": "replace-css-url-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack loader to transform css urls using custom function",
   "main": "src/index.js",
   "keywords": [
