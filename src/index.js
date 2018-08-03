@@ -1,9 +1,9 @@
-const {join, relative} = require('path').posix;
+const {resolve, relative, dirname} = require('path').posix;
 const loaderUtils = require('loader-utils');
 const replaceCSSUrl = require('replace-css-url');
 
-module.exports = function(source, map) {
-  const {cacheable, resourcePath, rootContext} = this;
+module.exports = function (source, map) {
+  const {cacheable, resourcePath} = this;
   cacheable && cacheable();
 
   let {replace} = loaderUtils.getOptions(this);
@@ -12,11 +12,9 @@ module.exports = function(source, map) {
     throw '[replace-css-url] options.replace have to be function!';
   }
 
-  const fileName = join(rootContext||'', relative('', resourcePath))
-
   const oldCSS = source;
-  const newCSS = replaceCSSUrl(oldCSS, url => replace(url, fileName));
+  const newCSS = replaceCSSUrl(oldCSS, url => replace(url, resourcePath, this));
 
-  return newCSS
+  return newCSS;
 };
 

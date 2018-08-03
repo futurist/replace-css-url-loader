@@ -48,7 +48,7 @@ describe('Replace css url loader test', () => {
       getTestWebPackConfig({
         loader: '__this-loader',
         query: {replace: (url, f)=> {
-          expect(f).to.equal('test/source/entry.css')
+          expect(path.relative(__dirname, f)).to.equal('source/entry.css')
           return url.replace('/assets/', 'https://domain/assets/')
         }}
       }),
