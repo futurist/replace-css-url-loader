@@ -27,7 +27,7 @@
     "webpack": "^3.9.1"
   },
   "peerDependencies": {
-    "webpack": ">=3.9.1"
+    "webpack": ">=3.0.0"
   },
   "dependencies": {
     "loader-utils": "^1.1.0",
