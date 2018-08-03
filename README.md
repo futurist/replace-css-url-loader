@@ -31,7 +31,8 @@ module.exports = {
             {
                 loader: 'replace-css-url-loader',
                 query: {
-                    replace: url => {
+                    replace: (url, file) => {
+                      console.log('now replacing css file', file)
                       var match = /(?:https?:)\/\/at.alicdn.com\/t\/\w+.([^.]+)/.exec(url)
                       return match ? './static/font.' + match[1] : url
                     }
