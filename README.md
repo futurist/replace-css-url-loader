@@ -48,3 +48,7 @@ module.exports = {
   }
 ```
 
+## Note
+
+For `.less` file, you can place this plugin **between** `less-loader` and `css-loader`.
+
