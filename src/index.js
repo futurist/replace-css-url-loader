@@ -26,6 +26,7 @@ module.exports = function (source, map, meta) {
   const {
     replace,
     match,
+    showLog = true,
     saveDir = ['out', 'temp']
   } = loaderUtils.getOptions(this) || {};
 
@@ -86,6 +87,9 @@ module.exports = function (source, map, meta) {
           filepath
         } = obj
         const newLink = relative(dirname(resourcePath), filepath) + (urlObj.search || '') + (urlObj.hash || '');
+        if(showLog){
+          console.log(`[replace-css-url]: "${link}" with "${newLink}"`)
+        }
         return newLink
       } else {
         return link

@@ -1,7 +1,7 @@
 {
   "name": "replace-css-url-loader",
   "version": "1.0.4",
-  "description": "Webpack loader to transform css urls using custom function",
+  "description": "Webpack plugin to transform download cdn urls in css and replaced with local file path",
   "main": "src/index.js",
   "keywords": [
     "webpack",
